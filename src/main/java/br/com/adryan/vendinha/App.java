@@ -22,6 +22,12 @@ public class App {
     	System.out.println("Produto....: " + c.getProduto().getNome());
     	System.out.println("Qtd........: " + c.getQtd());
     	System.out.println("Valor UN...: " + c.getProduto().getValor());
-    	System.out.println("Total......: " + c.getTotal());
+    	System.out.println("Total......: " + c.getTotal());	
+    	
+    	System.out.println("id do cliente: " + carlos.getClienteId());
+    	System.out.println("id do produto: " + p1.getProdutoId());
+    	System.out.println("id do produto: " + p2.getProdutoId());
+    	System.out.println("id do produto: " + p3.getProdutoId());
+    	System.out.println("id da compra : " + c.getCompraId());
     }
 }
