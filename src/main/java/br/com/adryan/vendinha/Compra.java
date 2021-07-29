@@ -1,34 +1,50 @@
 package br.com.adryan.vendinha;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SplittableRandom;
 
 public class Compra {
 	
+	private Long id;
 	private Cliente cliente;
-	private Produto produto;
-	private Integer qtd;
-	private BigDecimal total;
+	private List<ItemCompra> itens;
+	private BigDecimal valorPago;
 
 	public Compra(Cliente c, Produto p, Integer qtd) {
+		this.itens = new ArrayList<>();
+		this.id = new SplittableRandom().nextLong(1, Long.MAX_VALUE);
 		this.cliente = c;
-		this.produto = p;
-		this.qtd = qtd;
-		this.total = p.getValor().multiply(BigDecimal.valueOf(qtd));
+		this.addProduto(p, qtd);
+	}
+
+	public void addProduto(Produto p, Integer qtd) {
+		this.itens.add(new ItemCompra(p, qtd));
 	}
 
 	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public Produto getProduto() {
-		return produto;
+	public Long getId() {
+		return id;
 	}
 
-	public Integer getQtd() {
-		return qtd;
+	public List<ItemCompra> getItens() {
+		return itens;
 	}
 
 	public BigDecimal getTotal() {
-		return total;
+		BigDecimal soma = BigDecimal.ZERO;
+		for (ItemCompra i : itens) {
+			soma = soma.add(i.getTotal());
+		}
+		return soma;
 	}
+
+	public BigDecimal getValorPago() {
+		return valorPago;
+	}
+
 }
