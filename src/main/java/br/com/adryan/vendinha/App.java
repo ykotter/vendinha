@@ -25,14 +25,15 @@ public static void main(String[] args) {
     	c.addProduto(p4, 2);
     	c.addProduto(p5, 4);
     	
-    	System.out.println("Cliente....: " + c.getCliente().getId() + " - " + c.getCliente().getNome());
+    	System.out.println("CARRINHO");
+    	System.out.println("\nCliente.......: " + c.getCliente().getId() + " -> " + c.getCliente().getNome());
     	for (ItemCompra i : c.getItens()) {
 			System.out.println("");
-    		System.out.println("Produto....: " + i.getProduto().getId() + " - " + i.getProduto().getNome());
-    		System.out.println("Qtd........: " + i.getQtd());
-    		System.out.println("Valor UN...: " + i.getProduto().getValor());
-    		System.out.println("Total......: " + i.getTotal());
+    		System.out.println("Produto.......: " + i.getProduto().getId() + " -> " + i.getProduto().getNome());
+    		System.out.println("Quantidade....: " + i.getQtd());
+    		System.out.println("Valor.........: " + i.getProduto().getValor());
+    		System.out.println("Total.........: " + i.getTotal());
 		}
-    	System.out.println("Total G....: " + c.getTotal());
+    	System.out.println("\nTotal Compra..: " + c.getTotal());
     }
 }
